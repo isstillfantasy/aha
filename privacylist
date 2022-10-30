@@ -1,0 +1,419 @@
+[General]
+loglevel = notify
+bypass-system = true
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
+ipv6 = true
+allow-wifi-access = true
+exclude-simple-hostnames = true
+show-error-page-for-reject = true
+http-listen = 0.0.0.0
+socks5-listen = 0.0.0.0
+wifi-assist = false
+external-controller-access = ttrss@0.0.0.0:6170
+test-timeout = 5
+http-api-web-dashboard = true
+dns-server = 114.114.114.114, 223.5.5.5, 1.2.4.8, system
+all-hybrid = true
+allow-hotspot-access = true
+
+[Replica]
+hide-apple-request = 0
+hide-crashlytics-request = 1
+hide-udp = 0
+keyword-filter-type = none
+keyword-filter = (null)
+
+[Proxy]
+DIRECT = direct
+BWG 79 = trojan, www.chufantasy.top, 39813, password=SxiBHlbb
+BWG CN = trojan, www.heydaniel.club, 33238, username=lutw, password=SMSsPaxF
+
+[Proxy Group]
+Proxy Default = select, GIAAuto, BWG 79, BWG CN, DIRECT, 🤖️AutoSwitch, 🐮Muniu 最后不得已选择, policy-path=https://api.darkssl.com/v1/cfg/s5i5ib3yno4y4kg/surge/Crown.conf, update-interval=0
+GIAAuto = url-test, BWG CN, BWG 79, interval=900, tolerance=300, timeout=5
+🍐AppleOne = select, DIRECT, GIAAuto, BWG 79, BWG CN, no-alert=0, hidden=0
+🎵Spotify = select, DIRECT, GIAAuto, no-alert=0, hidden=0
+🎬Netflix = select, 🎬NetflixTest, BWG 79, no-alert=0, hidden=0, include-all-proxies=0
+🎬Disney+ = select, BWG 79, 🎬Netflix, no-alert=0, hidden=0
+💰Paypal = select, BWG CN, BWG 79, no-alert=0, hidden=0
+🛒eBay = select, BWG 79, BWG CN, no-alert=0, hidden=0
+🛒AmazoncanDirect = select, BWG 79, BWG CN, DIRECT, no-alert=0, hidden=0
+🎬NetflixTest = url-test, url=http://www.gstatic.com/generate_204, timeout=5, interval=900, tolerance=200, no-alert=0, hidden=0
+🤖️AutoSwitch = ssid, default = DIRECT, cellular = DIRECT, "Tencent-WiFi" = DIRECT
+Apple = select, 🍐AppleOne, DIRECT
+AppleStore = select, 🍐AppleOne, DIRECT
+AppleNews = select, 🍐AppleOne, DIRECT, REJECT
+✈️Auto = url-test, policy-path=https://muniu.click/link/Sb6TXJMTnSY5qePA?surge=3, update-interval=0, interval=900, tolerance=300, timeout=5
+🐮Muniu 最后不得已选择 = url-test, policy-path=https://muniu.click/link/Sb6TXJMTnSY5qePA?surge=3, update-interval=0
+BlaskSSL Auto = url-test, policy-path=https://api.darkssl.com/v1/cfg/s5i5ib3yno4y4kg/surge/Crown.conf, update-interval=0
+
+[Rule]
+DOMAIN-SUFFIX,115.com,DIRECT
+DOMAIN-SUFFIX,115.com,DIRECT
+DOMAIN,pianyuan.org,DIRECT
+DOMAIN-SUFFIX,btbtt20.com,GIAAuto // Added for: www.btbtt20.com:443
+AND,((PROTOCOL,UDP), (DEST-PORT,443)),REJECT-NO-DROP
+DOMAIN-SUFFIX,namesilo.com,Proxy Default
+DOMAIN-SUFFIX,bandwagonhost.com,Proxy Default
+DOMAIN-SUFFIX,v2ex.com,Proxy Default
+# > 😨Contemporary
+USER-AGENT,Gboard*,REJECT
+DOMAIN-SUFFIX,ppduck.com,REJECT-TINYGIF
+DOMAIN-SUFFIX,com-l-qq.com,DIRECT
+USER-AGENT,YYeTs,DIRECT
+DOMAIN-KEYWORD,douban,DIRECT
+DOMAIN-SUFFIX,alphassl.com,DIRECT
+DOMAIN-SUFFIX,edu.cn,DIRECT
+DOMAIN-SUFFIX,air-matters.com,DIRECT
+DOMAIN-SUFFIX,air-matters.io,DIRECT
+PROCESS-NAME,Core Sync,REJECT
+DOMAIN,hbrt.adobe.com,REJECT
+# > Download
+PROCESS-NAME,aria2c,DIRECT
+PROCESS-NAME,fdm,DIRECT
+PROCESS-NAME,Folx,DIRECT
+PROCESS-NAME,NetTransport,DIRECT
+PROCESS-NAME,Thunder,DIRECT
+PROCESS-NAME,Transmission,DIRECT
+PROCESS-NAME,uTorrent,DIRECT
+PROCESS-NAME,WebTorrent,DIRECT
+PROCESS-NAME,WebTorrent Helper,DIRECT
+# ❤️Unbreak
+DOMAIN-SUFFIX,scdn.co,DIRECT // Added for webpage: i.scdn.co:443
+# > Alibaba
+USER-AGENT,%E4%BC%98%E9%85%B7*,DIRECT
+DOMAIN,log.mmstat.com,DIRECT
+DOMAIN,sycm.mmstat.com,DIRECT
+DOMAIN-SUFFIX,alibaba.com,DIRECT
+DOMAIN-SUFFIX,alibabausercontent.com,DIRECT
+DOMAIN-SUFFIX,alicdn.com,DIRECT
+DOMAIN-SUFFIX,alikunlun.com,DIRECT
+DOMAIN-SUFFIX,alipay.com,DIRECT
+DOMAIN-SUFFIX,amap.com,DIRECT
+DOMAIN-SUFFIX,autonavi.com,DIRECT
+DOMAIN-SUFFIX,dingtalk.com,DIRECT
+DOMAIN-SUFFIX,mxhichina.com,DIRECT
+DOMAIN-SUFFIX,soku.com,DIRECT
+DOMAIN-SUFFIX,taobao.com,DIRECT
+DOMAIN-SUFFIX,tmall.com,DIRECT
+DOMAIN-SUFFIX,tmall.hk,DIRECT
+DOMAIN-SUFFIX,ykimg.com,DIRECT
+DOMAIN-SUFFIX,youku.com,DIRECT
+DOMAIN-SUFFIX,xiami.com,DIRECT
+DOMAIN-SUFFIX,xiami.net,DIRECT
+# > Tencent
+DOMAIN,fairplay.l.qq.com,DIRECT
+DOMAIN,livew.l.qq.com,DIRECT
+DOMAIN,vd.l.qq.com,DIRECT
+# > Umeng
+DOMAIN,msg.umeng.com,DIRECT
+DOMAIN,msg.umengcloud.com,DIRECT
+# > Video
+DOMAIN-SUFFIX,iqiyi.com,DIRECT
+DOMAIN-SUFFIX,iqiyi.com,DIRECT
+DOMAIN-SUFFIX,iqiyipic.com,DIRECT
+DOMAIN-SUFFIX,71.am,DIRECT
+# > bilibili
+DOMAIN-SUFFIX,acgvideo.com,DIRECT
+DOMAIN-SUFFIX,biliapi.com,DIRECT
+DOMAIN-SUFFIX,biliapi.net,DIRECT
+DOMAIN-SUFFIX,bilibili.com,DIRECT
+DOMAIN-SUFFIX,bilibili.tv,DIRECT
+DOMAIN-SUFFIX,hdslb.com,DIRECT
+# > eBay必须国外
+USER-AGENT,ebay*,🛒eBay
+DOMAIN-SUFFIX,ebay.com,🛒eBay
+DOMAIN-SUFFIX,ebayimg.com,🛒eBay
+DOMAIN-SUFFIX,forter.com,🛒eBay
+DOMAIN-KEYWORD,ebay,🛒eBay
+# > Amazon有时候培养国内
+USER-AGENT,Amazon*,🛒AmazoncanDirect
+DOMAIN-SUFFIX,amazon.com,🛒AmazoncanDirect
+DOMAIN-SUFFIX,media-amazon.com,🛒AmazoncanDirect
+DOMAIN-SUFFIX,amazon-adsystem.com,🛒AmazoncanDirect
+DOMAIN-KEYWORD,amazon,🛒AmazoncanDirect
+# > Amazon Prime Video
+USER-AGENT,InstantVideo.US*,🛒AmazoncanDirect
+USER-AGENT,Prime%20Video*,🛒AmazoncanDirect
+DOMAIN-SUFFIX,aiv-cdn.net,🛒AmazoncanDirect
+DOMAIN-SUFFIX,aiv-delivery.net,🛒AmazoncanDirect
+DOMAIN-SUFFIX,amazonvideo.com,🛒AmazoncanDirect
+DOMAIN-SUFFIX,primevideo.com,🛒AmazoncanDirect
+DOMAIN-SUFFIX,media-amazon.com,🛒AmazoncanDirect
+DOMAIN,atv-ps.amazon.com,🛒AmazoncanDirect
+DOMAIN,fls-na.amazon.com,🛒AmazoncanDirect
+DOMAIN,avodmp4s3ww-a.akamaihd.net,🛒AmazoncanDirect
+DOMAIN,d25xi40x97liuc.cloudfront.net,🛒AmazoncanDirect
+DOMAIN,dmqdd6hw24ucf.cloudfront.net,🛒AmazoncanDirect
+DOMAIN,dmqdd6hw24ucf.cloudfront.net,🛒AmazoncanDirect
+DOMAIN,d22qjgkvxw22r6.cloudfront.net,🛒AmazoncanDirect
+DOMAIN,d1v5ir2lpwr8os.cloudfront.net,🛒AmazoncanDirect
+DOMAIN,d27xxe7juh1us6.cloudfront.net,🛒AmazoncanDirect
+DOMAIN-KEYWORD,avoddashs,🛒AmazoncanDirect
+# > PayPal尽量USCN2
+USER-AGENT,PayPal*,💰Paypal
+DOMAIN-SUFFIX,paypal.me,💰Paypal
+DOMAIN-SUFFIX,paypal.com,💰Paypal
+DOMAIN-SUFFIX,paypalobjects.com,💰Paypal
+DOMAIN-KEYWORD,paypal,💰Paypal
+# AppleNews
+USER-AGENT,AppleNews*,AppleNews
+USER-AGENT,com.apple.news*,AppleNews
+USER-AGENT,News*,AppleNews
+PROCESS-NAME,News,AppleNews
+DOMAIN,gateway.icloud.com,AppleNews
+DOMAIN-SUFFIX,blobstore.apple.com,AppleNews
+DOMAIN-SUFFIX,news-edge.apple.com,AppleNews
+DOMAIN-SUFFIX,apple.comscoreresearch.com,AppleNews
+DOMAIN-SUFFIX,news-edge.apple.com,AppleNews
+DOMAIN-SUFFIX,news-client.apple.com,AppleNews
+DOMAIN-SUFFIX,news-events.apple.com,AppleNews
+DOMAIN-SUFFIX,c.apple.news,AppleNews
+# AppleStore
+PROCESS-NAME,storedownloadd,AppleStore // Mac App Store
+USER-AGENT,com.apple.appstored*,AppleStore // iOS App Store
+# Apple
+DOMAIN-SUFFIX,ls.apple.com,Apple
+DOMAIN,gs-loc-cn.apple.com,Apple
+USER-AGENT,*com.apple.mobileme.fmip1,Apple
+USER-AGENT,*WeatherFoundation*,Apple
+USER-AGENT,%E5%9C%B0%E5%9B%BE*,Apple // Maps
+USER-AGENT,%E8%AE%BE%E7%BD%AE*,Apple // Settings
+USER-AGENT,com.apple.geod*,Apple
+USER-AGENT,com.apple.Maps,Apple
+USER-AGENT,FindMyFriends*,Apple
+USER-AGENT,FindMyiPhone*,Apple
+USER-AGENT,FMDClient*,Apple
+USER-AGENT,FMFD*,Apple
+USER-AGENT,fmflocatord*,Apple
+USER-AGENT,geod*,Apple
+USER-AGENT,locationd*,Apple
+USER-AGENT,Maps*,Apple
+DOMAIN,api.smoot.apple.com,Apple
+DOMAIN,captive.apple.com,Apple
+DOMAIN,configuration.apple.com,Apple
+DOMAIN,guzzoni.apple.com,Apple
+DOMAIN,smp-device-content.apple.com,Apple
+DOMAIN,xp.apple.com,Apple
+DOMAIN-SUFFIX,ess.apple.com,Apple
+DOMAIN-SUFFIX,push-apple.com.akadns.net,Apple
+DOMAIN-SUFFIX,push.apple.com,Apple
+DOMAIN,aod.itunes.apple.com,Apple // Apple Music Streaming
+DOMAIN,api.smoot.apple.cn,Apple
+DOMAIN,gs-loc.apple.com,Apple // Maps
+DOMAIN,mvod.itunes.apple.com,Apple // Apple Music Streaming
+DOMAIN,streamingaudio.itunes.apple.com,Apple // Apple Music Streaming
+DOMAIN-SUFFIX,cdn-apple.com,Apple
+DOMAIN-SUFFIX,lcdn-locator.apple.com,Apple // Maps
+DOMAIN-SUFFIX,lcdn-registration.apple.com,Apple // Maps
+DOMAIN-SUFFIX,ls.apple.com,Apple // Maps
+DOMAIN-SUFFIX,mzstatic.com,Apple // App Store & iTunes Images
+DOMAIN-SUFFIX,aaplimg.com,Apple
+DOMAIN-SUFFIX,comscoreresearch.com,Apple
+DOMAIN-SUFFIX,apple.co,Apple
+DOMAIN-SUFFIX,apple.com,Apple
+DOMAIN-SUFFIX,icloud-content.com,Apple
+DOMAIN-SUFFIX,icloud.com,Apple
+DOMAIN-SUFFIX,itunes.com,Apple
+DOMAIN-SUFFIX,itunes.apple.com,Apple
+DOMAIN-SUFFIX,lookup-api.apple.com,Apple // Dictionary
+DOMAIN-SUFFIX,me.com,Apple
+DOMAIN-SUFFIX,apple-cloudkit.com,Apple
+# Taiwan & HK
+DOMAIN-SUFFIX,gov.hk,Proxy Default // Added for webpage: https://www.chp.gov.hk/files/pdf/
+DOMAIN-SUFFIX,tw,Proxy Default
+# Against DNS pollution
+DOMAIN-KEYWORD,google,Proxy Default
+DOMAIN-SUFFIX,gstatic.com,Proxy Default
+DOMAIN-KEYWORD,gmail,Proxy Default
+DOMAIN-KEYWORD,youtube,Proxy Default
+DOMAIN-KEYWORD,facebook,Proxy Default
+DOMAIN-SUFFIX,fb.me,Proxy Default
+DOMAIN-SUFFIX,fbcdn.net,Proxy Default
+DOMAIN-KEYWORD,twitter,Proxy Default
+DOMAIN-KEYWORD,instagram,Proxy Default
+DOMAIN-KEYWORD,dropbox,Proxy Default
+DOMAIN-SUFFIX,twimg.com,Proxy Default
+DOMAIN-KEYWORD,blogspot,Proxy Default
+DOMAIN-SUFFIX,youtu.be,Proxy Default
+DOMAIN-SUFFIX,oculuscdn.com,Proxy Default
+DOMAIN-SUFFIX,oculus.com,Proxy Default
+DOMAIN-KEYWORD,whatsapp,Proxy Default
+# ✊Privacy &Advertising
+RULE-SET,https://raw.githubusercontent.com/zhupai/Module/master/Ruleset/PrivacyandAd.list,REJECT,update-interval=604800
+# > ChinaTelecom
+IP-CIDR,61.160.200.223/32,REJECT,no-resolve
+IP-CIDR,61.160.200.242/32,REJECT,no-resolve
+IP-CIDR,61.160.200.252/32,REJECT,no-resolve
+IP-CIDR,61.174.50.214/32,REJECT,no-resolve
+IP-CIDR,111.175.220.163/32,REJECT,no-resolve
+IP-CIDR,111.175.220.164/32,REJECT,no-resolve
+IP-CIDR,122.229.8.47/32,REJECT,no-resolve
+IP-CIDR,122.229.29.89/32,REJECT,no-resolve
+IP-CIDR,124.232.160.178/32,REJECT,no-resolve
+IP-CIDR,175.6.223.15/32,REJECT,no-resolve
+IP-CIDR,183.59.53.237/32,REJECT,no-resolve
+IP-CIDR,218.93.127.37/32,REJECT,no-resolve
+IP-CIDR,221.228.17.152/32,REJECT,no-resolve
+IP-CIDR,221.231.6.79/32,REJECT,no-resolve
+IP-CIDR,222.186.61.91/32,REJECT,no-resolve
+IP-CIDR,222.186.61.95/32,REJECT,no-resolve
+IP-CIDR,222.186.61.96/32,REJECT,no-resolve
+IP-CIDR,222.186.61.97/32,REJECT,no-resolve
+# > ChinaUnicom
+IP-CIDR,106.75.231.48/32,REJECT,no-resolve
+IP-CIDR,119.4.249.166/32,REJECT,no-resolve
+IP-CIDR,220.196.52.141/32,REJECT,no-resolve
+IP-CIDR,221.6.4.148/32,REJECT,no-resolve
+# > ChinaMobile
+IP-CIDR,114.247.28.96/32,REJECT,no-resolve
+IP-CIDR,120.240.95.37/32,REJECT,no-resolve
+IP-CIDR,221.179.131.72/32,REJECT,no-resolve
+IP-CIDR,221.179.140.145/32,REJECT,no-resolve
+# > Spotify
+USER-AGENT,Spotify*,🎵Spotify
+DOMAIN-SUFFIX,pscdn.co,🎵Spotify
+DOMAIN-SUFFIX,scdn.co,🎵Spotify
+DOMAIN-SUFFIX,spotify.com,🎵Spotify
+DOMAIN-SUFFIX,spoti.fi,🎵Spotify
+DOMAIN-KEYWORD,spotify.com,🎵Spotify
+DOMAIN-KEYWORD,-spotify-com,🎵Spotify
+# > Disney+
+USER-AGENT,Disney+*,🎬Disney+
+DOMAIN-SUFFIX,bamgrid.com,🎬Disney+
+DOMAIN-SUFFIX,disneyplus.com,🎬Disney+
+DOMAIN-SUFFIX,disney-plus.net,🎬Disney+
+DOMAIN-SUFFIX,disneystreaming.com,🎬Disney+
+DOMAIN-SUFFIX,dssott.com,🎬Disney+
+DOMAIN,cdn.registerdisney.go.com,🎬Disney+
+# NAME: TikTok
+DOMAIN,p16-tiktokcdn-com.akamaized.net,Proxy Default
+DOMAIN-SUFFIX,byteoversea.com,Proxy Default
+DOMAIN-SUFFIX,ibytedtos.com,Proxy Default
+DOMAIN-SUFFIX,ibyteimg.com,Proxy Default
+DOMAIN-SUFFIX,ipstatp.com,Proxy Default
+DOMAIN-SUFFIX,muscdn.com,Proxy Default
+DOMAIN-SUFFIX,musical.ly,Proxy Default
+DOMAIN-SUFFIX,sgpstatp.com,Proxy Default
+DOMAIN-SUFFIX,snssdk.com,Proxy Default
+DOMAIN-SUFFIX,tik-tokapi.com,Proxy Default
+DOMAIN-SUFFIX,tiktok.com,Proxy Default
+DOMAIN-SUFFIX,tiktokcdn.com,Proxy Default
+DOMAIN-SUFFIX,tiktokv.com,Proxy Default
+DOMAIN-KEYWORD,-tiktokcdn-com,Proxy Default
+USER-AGENT,TikTok*,Proxy Default
+# > Netflix
+USER-AGENT,Argo*,🎬Netflix
+DOMAIN-SUFFIX,netflix.com,🎬Netflix
+DOMAIN-SUFFIX,netflix.net,🎬Netflix
+DOMAIN-SUFFIX,nflxext.com,🎬Netflix
+DOMAIN-SUFFIX,nflximg.com,🎬Netflix
+DOMAIN-SUFFIX,nflximg.net,🎬Netflix
+DOMAIN-SUFFIX,nflxso.net,🎬Netflix
+DOMAIN-SUFFIX,nflxvideo.net,🎬Netflix
+DOMAIN-SUFFIX,netflixdnstest0.com,🎬Netflix
+DOMAIN-SUFFIX,netflixdnstest1.com,🎬Netflix
+DOMAIN-SUFFIX,netflixdnstest2.com,🎬Netflix
+DOMAIN-SUFFIX,netflixdnstest3.com,🎬Netflix
+DOMAIN-SUFFIX,netflixdnstest4.com,🎬Netflix
+DOMAIN-SUFFIX,netflixdnstest5.com,🎬Netflix
+DOMAIN-SUFFIX,netflixdnstest6.com,🎬Netflix
+DOMAIN-SUFFIX,netflixdnstest7.com,🎬Netflix
+DOMAIN-SUFFIX,netflixdnstest8.com,🎬Netflix
+DOMAIN-SUFFIX,netflixdnstest9.com,🎬Netflix
+DOMAIN-KEYWORD,dualstack.apiproxy-device-prod-nlb-,🎬Netflix
+DOMAIN-KEYWORD,dualstack.ichnaea-web-,🎬Netflix
+IP-CIDR,23.246.0.0/18,🎬Netflix,no-resolve
+IP-CIDR,37.77.184.0/21,🎬Netflix,no-resolve
+IP-CIDR,45.57.0.0/17,🎬Netflix,no-resolve
+IP-CIDR,64.120.128.0/17,🎬Netflix,no-resolve
+IP-CIDR,66.197.128.0/17,🎬Netflix,no-resolve
+IP-CIDR,108.175.32.0/20,🎬Netflix,no-resolve
+IP-CIDR,192.173.64.0/18,🎬Netflix,no-resolve
+IP-CIDR,198.38.96.0/19,🎬Netflix,no-resolve
+IP-CIDR,198.45.48.0/20,🎬Netflix,no-resolve
+IP-CIDR,34.210.42.111/32,🎬Netflix,no-resolve
+IP-CIDR,52.89.124.203/32,🎬Netflix,no-resolve
+IP-CIDR,54.148.37.5/32,🎬Netflix,no-resolve
+# Telegram
+IP-CIDR,91.108.56.0/22,Proxy Default,no-resolve
+IP-CIDR,91.108.4.0/22,Proxy Default,no-resolve
+IP-CIDR,91.108.8.0/22,Proxy Default,no-resolve
+IP-CIDR,109.239.140.0/24,Proxy Default,no-resolve
+IP-CIDR,149.154.160.0/20,Proxy Default,no-resolve
+IP-CIDR,149.154.164.0/22,Proxy Default,no-resolve
+# LAN
+DOMAIN-SUFFIX,local,DIRECT
+IP-CIDR,192.168.0.0/16,DIRECT
+IP-CIDR,10.0.0.0/8,DIRECT
+IP-CIDR,172.16.0.0/12,DIRECT
+IP-CIDR,127.0.0.0/8,DIRECT
+# GeoIP CN
+GEOIP,CN,DIRECT
+FINAL,Proxy Default
+
+[Host]
+api.map.baidu.com = 0.0.0.0
+ps.map.baidu.com = 0.0.0.0
+sv.map.baidu.com = 0.0.0.0
+offnavi.map.baidu.com = 0.0.0.0
+newvector.map.baidu.com = 0.0.0.0
+ulog.imap.baidu.com = 0.0.0.0
+newloc.map.n.shifen.com = 0.0.0.0
+api.map.baidu.com = ::2
+ps.map.baidu.com = ::2
+sv.map.baidu.com = ::2
+offnavi.map.baidu.com = ::2
+newvector.map.baidu.com = ::2
+ulog.imap.baidu.com = ::2
+newloc.map.n.shifen.com = ::2
+bar.com = server:8.8.4.4
+thisisinsider.com = server:8.8.4.4
+# xunlei
+hub5btmain.sandai.net = 127.0.0.1
+hub5emu.sandai.net = 127.0.0.1
+
+[URL Rewrite]
+^http:\/\/115\.com\/\?ct=sign$ http://115.com/lx?taskdg=1 header
+# Redirect Google Search Service
+^http://www\.google\.cn http://www.google.com header
+^https://www\.google\.cn https://www.google.com header
+^http://mp.weixin.qq.com/mp/report _ reject
+^.+?googlevideo.com/.+?---.+?index - reject
+^https?://pagead2.googlesyndication.com/pagead/ - reject
+^https?://r\d{1,2}---sn-.+.googlevideo.com - reject
+^https?://s0.2mdn.net/ads/ - reject
+^https?://stats.tubemogul.com/stats/ - reject
+^https?:\/\/.+\/v2\/app_ads\/ - reject
+^https?:\/\/erebor\.douban\.com\/count\/\?ad= - reject
+^https?:\/\/.+\.doubanio\.com\/view\/dale-online\/dale_ad/ - reject
+^https?:\/\/update\.pan\.baidu\.com\/statistics - reject
+^https?:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/guanggao\/ - reject
+^https?:\/\/.+\.pstatp\.com\/img\/ad - reject
+^https?:\/\/dsp\.toutiao\.com\/api\/xunfei\/ads\/ - reject
+^https?:\/\/m\.client\.10010\.com\/mobileService\/customer\/accountListData\.htm - reject
+^https?:\/\/m\.client\.10010\.com\/uniAdmsInterface\/(getWelcomeAd|getHomePageAd) - reject
+^https?:\/\/mlife\.cmbchina\.com/ClientFaceService\/preCacheAdvertise\.json - reject
+^https?:\/\/mlife\.cmbchina\.com\/ClientFaceService\/getAdvertisement\.json - reject
+^https?:\/\/yd\.meirss\.cn\/static\/image\/advertising\/ - reject
+^https?:\/\/msspjh\.emarbox\.com\/getAdConfig - reject
+^https?:\/\/api\.videozhishi\.com\/api\/getAdvertising - reject
+^https?:\/\/ctrl\.(playcvn|zmzapi)\.(com|net)\/app\/(ads|init) - reject
+
+[MITM]
+hostname = *.myqcloud.com, api.gyrosco.pe, api.gotokeep.com, vsco.co, api.termius.com, ios.prod.ftl.netflix.com, api.picsart.c*, api.meiease.c*, *.115.com, www.google.com, www.google.cn
+ca-passphrase = B9B4BD6C
+ca-p12 = MIIKPAIBAzCCCgYGCSqGSIb3DQEHAaCCCfcEggnzMIIJ7zCCBF8GCSqGSIb3DQEHBqCCBFAwggRMAgEAMIIERQYJKoZIhvcNAQcBMBwGCiqGSIb3DQEMAQYwDgQI5AoTmbiJzwsCAggAgIIEGMmFnTwrJ37oMMEVpVhGXXIVyl1ygj0uGNa7TvXlJ11uLOOi5EkKLzInzuOAsNRI6UYfaTPmNsaG1rjH8VTc83jKaJuI+niMZYSznCbHH343BQPI7C2yTc1vPMH2HXBN48cAYH0SmAv63C23vB81x2s6nuSGxhE38oykrgvLfjs9z/MPibPwa0Tbu1l5P/WhkiiIJWsbKr0RoFO5++qxh6rN/KwOFp/erxt3wIOA1CysuEqOp8viACOz4Ej11x96Lbv84auXkRueuAWTHRyuiXKmdNj2VqEG0qHGiPZTo9vXrlc6N/iRe1Sl0KEakQkKqSsrEFq/KZQj40qj7uj0PWnl9DxgC2iyFg/DLSR6LrorFNhdHNa4ulYx1F3tdETGTpE5zuXbBM6BJhBcuCTw8X95EcHK/36ZK7Ju9ZdmhKQhXuGlqBDe5kwmBtKRtSKyD8ZyygFAimeGnPlilV0ObB5WgX8JAaJObpTrwIxb15uZOr+uXGPGadnK3d79Lcf4dX2wgZa14VSNJFaR9YAiQ8+aogJsXpH8pcFRuKqu8TOGWpv1dSCLsYdQk6PjypGzaMHuMBdciMavgHdt1LN93lwKJJkvh7lfk5W1UJZdreZyoZQWmX2A1T+RBJXpqkTlMGAhesyuXscWHUi7/5Mzdd9JBKFJyiDuDh6bFaK6NvxmI8Hdwpy4SOxoin2ZboypyEi7KyQebi+hEU5UTqeK2UoXBK4fLusBhFS7LkDBWVIlLXTrBMqVow8+TbFfc4+JSoW+mVhlMpML8+FIxULiCh9HubvfcT5Psn9uq8zWtvIF6VFwUGilmJREl2FnZcRIJD7sNw6aE8NgNrCugq4Pb7iN5188B+KmrMjShR9gpUCL/8XdhNxqIhakEV8fX/CQOwXO39I+fUII02XHeITzyHqdsFVTJ1rsdVbRj/CCibSCX6CW6KWGGZk80/u0ZGJbclTogPGlkheOBKBOxiLIBnGkgDQDdemGJDrtYiP/uHAvuUkrxROA+8uahykts04iJlVMW0n++lKLaM8L1o0Eoj5YISKg82b6aAlziJL9xLIRIRrnFGR2kYKQDQP2qEQxlDjKt/9QyrRSijqKcDJ368HZVDlLKLsn3hblsRyoTpNx1SFeyYgejrFGyVg4IpRrEJg1TL/k6OjXavj78oJc9lYKudI6vjDxjBuR8aGiftnUjd/h7hi1Y9D8egwqUvKQl2mvSo/BBTsHkrWO4yZVE+zNsPF5w6SYg5ykoCYWg4afLEO8b48yhH9vrlhYyvy9907orcZYuZ7ROPwRzVOSRS1nhRwhMKrZQ+OnqTcpM5eNnN5zNLc07E25dw6L3YVd7wivELz4q16iF1NBMAeaLVhVbvwpackJdbaEP0NbXgGqIyU0zWtOG8swggWIBgkqhkiG9w0BBwGgggV5BIIFdTCCBXEwggVtBgsqhkiG9w0BDAoBAqCCBO4wggTqMBwGCiqGSIb3DQEMAQMwDgQIdn8Q035X9mQCAggABIIEyFt+wnQEBwtYOmm8YzNKXiFR/JzdruDRD0hr9L3nQC4h2TxlroHtisSjqDLjwYNEdZY+J9vqtgE4Zza4T8lZ1KnBBQZ7nqdDbjNCwTD9Wj/araBa4AnStflqKjtvs0govXv7eR2Ap3UVJjjcKbn5aWDEfdT1OdYzYSnxf4KbSdcT/K9eVTceO+sNJgH6YULvdk25yOu+cvHR2OBgAqy6ySTP5sjFqVISH4GMzJ8ETCbdr7g1APZl+5jMN9pDXe1DE+za9LKH2LS/5M/uKMqPT6IOkFDrVyoe9nfc0Zt0hCY1QlCvu+X8SOgkjIIrZxNM9EG/BEzkpOy7Zqs5yoqVE9/uWU8nrLsrxSuw4Iv5N19S/zeTjJTOje4VtHALYsKkmS7Um/0BiVSMreBzIW7BiSlsd4pGvLqZGsgO1nLXxLLf7qkvefE+fLcYtGAE8l9YSBTl+9qGzELUnIdTm5a87PcpcELf1bMbHGjCcv6uHHui06bG7TpIVckpEnNm9TXwgd6f+8sTzT6HpTiktI6xzNS9t0mZGVVTGlYcmrsgVOz2hHz3WWbBs1XO4jl8/ZprZWLnfo6IeaWTXMwDz6wPNkmNA1c/Q7AACJstunBL5QJGQ/Ksl75QRNPHHPpdYz4jXa25rZ3+jOPyg9pVVunnKNQQ78khJu7Ra4HO0h5BRYGEtXFl+2xknuLCln5INBIgc6FOPkt3FdoR3yltnrvsO1LcxcA6IYSxAp73qmNtztIAmen1IsvjTpedWSWAo39Kc9Mca+yOsAt8isJZYso1xKLvrEoLCqObcUDSc8FKJhqTQr5OJs3nC98x9dJwg5/rFwfnACRDWuStmByqetKdqor2CbILXOpl8+tn2ns7Fgdn9TwgH3l75tvajjyiBNXCY9HoHi/B/4O7adRRF0DJ8ElejVFLTS18HMcYCiEaDMnTG8NmylRz8HE/+ENJ0wzuj6NFLOOCiawHAqSa2xs6FgMJsKyHxwAmkQC65vjwqka8kUxn7Xird7D0RLqw8DW2mjJSpJSvIirZYjmBhLTiCMto8L4xm2PGolAHc8c6J9BNu3b+tDt9ZOJ78GPOfSJ91Kkb92FMWFR5cE3j8SdXc7JBjXoMoSyhBs3M6ipyRUTnSmlhjsxQJ+pFOkPkuTe8WdK9ULvXyY8MD3jnQD673QKCsp0/QIM/6zCjpvYVrcRahHymllKnulCVLni1cenMp5jnYl4AV46SOhgur+ADCU66g37PyaL9oy+y4YfI2AHxHgJ2Tk0TVqBhRHixlEXnTaLGsRKV+PRKeB+hBqjdjTNTPDQ20nranIbXZK5bjEEOEkJHaNgnjpMJUjdCfPfjSibCmrWu03Q/fiwwi1+xsYeiTtd1CPufPx/NeHN5TDxjXDUt8ItAfzxBfTrQuSzpQ2kzO72dnbBqYDFoOLKcI9AQL22bA9kKix6AsizMe5pTpDZZIJnuqo5wDRv8K/leu9SOM0s8mbJJM1GMq9eryFtgj+ZrqXSjp6QEYv/Pku1x1UnTipjO1yycCpZS4i/YqpwZBQUXMpPZPDgSfVf9dZ+mqQPw+WLZ4DYw1p+IPzSeoY3WPn9CjlynCYe6YLupdjYdBwzW99DdS9ssWnzVZyPQjQmcG+OYGjFsMCMGCSqGSIb3DQEJFTEWBBT+jtbtFtQaYaoGQe0vApnQQlNTcTBFBgkqhkiG9w0BCRQxOB42AFMAdQByAGcAZQAgAEcAZQBuAGUAcgBhAHQAZQBkACAAQwBBACAAQgA5AEIANABCAEQANgBDMC0wITAJBgUrDgMCGgUABBQ1hwO2VJyrcdYIETbnGocQ4wxpEQQI5+qxj3e+b68=
+
+[Script]
+115lx.js = script-path=https://raw.githubusercontent.com/ikanam/Surge-Scripts/master/115lx.js,requires-body=true,type=http-response,pattern=^http:\/\/115\.com\/lx.*$
+115lx.js = script-path=https://raw.githubusercontent.com/ikanam/Surge-Scripts/master/115lx.js,requires-body=true,type=http-response,pattern=^https?:\/\/webapi\.115\.com\/user\/check_sign.*$
+# Vsco unlock
+vsco.js = type=http-response,pattern=https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/,requires-body=1,max-size=0,script-path=https://github.com/zhupai/Scripts/raw/master/vsco.js,script-update-interval=-1
+# Keep unlock
+Keep.js = type=http-response,pattern=https:\/\/api\.gotokeep\.com\/(.+\/subject|.+\/dynamic),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/zhupai/Scripts/master/Keep.js,script-update-interval=-1
+# Gyroscope unlock
+gyroscope.js = type=http-response,pattern=^https:\/\/api\.gyrosco\.pe\/v1\/account\/$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/zhupai/Scripts/master/gyroscope.js,script-update-interval=-1
+# Termius unlock
+Termius = type=http-response,pattern=https:\/\/api\.termius\.com\/api\/v3\/bulk\/account\/,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/zhupai/Scripts/master/Termius,script-update-interval=-1
+
