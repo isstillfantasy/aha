@@ -4,5 +4,5 @@
 1.在[Script]分组下添加下面这行配置
 http-request ^https?:\/\/.*\.115\.com\/.*\.m3u8.*$ script-path=https://raw.githubusercontent.com/ikanam/Surge-Scripts/master/115toinfuse.js
 */
-$notification.post('播放地址提取成功, 长按(重按)通知查看', '',  'infuse-' + $request.url);
+$notification.post('播放地址提取成功, 长按(重按)通知查看', '',  'infuse://play?' + $request.url);
 $done({}); 
