@@ -41,7 +41,7 @@ case $ARCH in
         exit 1
         ;;
 esac
-wget $PACKAGE
+wget $PACKAGE --no-check-certificate
 
 if [ $? -ne 0 ]; then
     echo "Download failed!"
