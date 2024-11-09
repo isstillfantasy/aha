@@ -6,5 +6,3 @@ http-request ^https?:\/\/.*\.115\.com\/.*\.m3u8.*$ script-path=https://raw.githu
 */
 $notification.post('播放地址提取成功, 长按(重按)通知查看', '',  'infuse://play?url=' + $request.url);
 $done({}); 
-
-
